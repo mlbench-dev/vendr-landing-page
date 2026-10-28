@@ -1,0 +1,16 @@
+{
+  "name": "Vendr — Closer than you think",
+  "short_name": "Vendr",
+  "description": "Discover independent vendors and small businesses across the Inland Empire, California.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090A",
+  "theme_color": "#226BF7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

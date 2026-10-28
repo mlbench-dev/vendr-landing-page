@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 11% 4%;
+    --foreground: 60 11% 87%;
+    --card: 220 13% 9%;
+    --card-foreground: 60 11% 87%;
+    --popover: 220 13% 9%;
+    --popover-foreground: 60 11% 87%;
+    --primary: 219 93% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 13%;
+    --secondary-foreground: 60 11% 87%;
+    --muted: 220 10% 13%;
+    --muted-foreground: 60 3% 57%;
+    --accent: 220 10% 14%;
+    --accent-foreground: 60 11% 87%;
+    --destructive: 6 80% 62%;
+    --destructive-foreground: 60 11% 97%;
+    --border: 220 8% 18%;
+    --input: 220 8% 18%;
+    --ring: 219 93% 55%;
+    --chart-1: 219 93% 55%;
+    --chart-2: 90 12% 49%;
+    --chart-3: 60 3% 57%;
+    --chart-4: 60 11% 87%;
+    --chart-5: 220 10% 30%;
+    --radius: 0.25rem;
+    --font-heading: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    --font-accent: "Instrument Serif", Georgia, serif;
+    --font-body: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease-out-film: cubic-bezier(0.16, 1, 0.3, 1);
+    --sidebar-background: 220 13% 9%;
+    --sidebar-foreground: 60 11% 87%;
+    --sidebar-primary: 219 93% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 14%;
+    --sidebar-accent-foreground: 60 11% 87%;
+    --sidebar-border: 220 8% 18%;
+    --sidebar-ring: 219 93% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-[1320px] px-6 md:px-10; }
+  .display { @apply font-display font-medium tracking-[-0.025em] leading-[1.08]; }
+  /* Second phrase of a heading: same face, quieter tone. */
+  :is(h1, h2, h3, .display) em.text-primary {
+    font-style: normal;
+    font-family: inherit;
+    font-weight: inherit;
+    color: hsl(var(--muted-foreground));
+  }
+  /* Reserved for the three brand lines: serif italic in brand blue. */
+  .accent em.text-primary {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: #4f8cff;
+  }
+  .glass {
+    @apply rounded-[22px] border border-white/15 bg-[#0a0c12]/55 p-6 text-white backdrop-blur-2xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.85)] md:p-8;
+  }
+  .glass .text-muted-foreground { color: rgb(220 225 240 / 0.8); }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-white text-[15px] font-semibold tracking-tight transition-all duration-300 hover:brightness-110 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-white/20 bg-white/5 text-foreground text-[15px] font-medium tracking-tight backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/10 hover:text-white active:scale-[0.98];
+  }
+  .link-quiet { @apply inline-flex items-center gap-1.5 text-[15px] text-muted-foreground transition-colors hover:text-foreground; }
+  .eyebrow { @apply block text-[13px] font-medium text-white/50; }
+  .lead { @apply text-[17px] leading-relaxed text-muted-foreground md:text-[18px]; }
+  .section { @apply py-24 md:py-32; }
+  .card-surface { @apply rounded-xl border border-white/10 bg-card/70; }
+  .kenburns { animation: kenburns 16s var(--ease-out-film) both; }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+@keyframes radar {
+  0% { transform: scale(0.4); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(18px, -10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .motion-safe-anim { animation: none !important; }
+}

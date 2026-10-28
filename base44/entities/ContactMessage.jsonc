@@ -1,0 +1,47 @@
+{
+  "name": "ContactMessage",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "general",
+        "vendor_support",
+        "app_feedback",
+        "partnership",
+        "press",
+        "other"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "replied",
+        "closed"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "category",
+    "message"
+  ]
+}

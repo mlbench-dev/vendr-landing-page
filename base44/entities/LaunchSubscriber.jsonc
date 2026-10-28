@@ -1,0 +1,19 @@
+{
+  "name": "LaunchSubscriber",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "email",
+    "consent"
+  ]
+}

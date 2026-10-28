@@ -1,0 +1,83 @@
+{
+  "name": "VendorApplication",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food_drink",
+        "makers_goods",
+        "services",
+        "wellness",
+        "other"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "storefront",
+        "pop_up",
+        "mobile",
+        "service_area",
+        "online_home"
+      ]
+    },
+    "city": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "service_area": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "offerings": {
+      "type": "string"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "referred_by": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "declined"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "business_name",
+    "category",
+    "mode",
+    "city",
+    "description",
+    "owner_name",
+    "email"
+  ]
+}

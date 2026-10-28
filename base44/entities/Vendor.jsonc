@@ -1,0 +1,93 @@
+{
+  "name": "Vendor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food_drink",
+        "makers_goods",
+        "services",
+        "wellness"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "enum": [
+        "Riverside",
+        "San Bernardino",
+        "Ontario",
+        "Redlands",
+        "Corona"
+      ]
+    },
+    "neighborhood": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "storefront",
+        "pop_up",
+        "mobile",
+        "service_area"
+      ]
+    },
+    "image_key": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "offerings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "website": {
+      "type": "string"
+    },
+    "is_concept": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "city",
+    "mode"
+  ]
+}
