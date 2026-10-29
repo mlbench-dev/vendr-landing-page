@@ -49,7 +49,7 @@ export default function Discover() {
         )}
 
         <Reveal className="mt-16 grid items-center gap-10 overflow-hidden rounded-2xl border border-white/10 bg-black md:grid-cols-[1.2fr_1fr]">
-          <div className="p-8 md:p-12">
+          <div className="p-5 sm:p-8 md:p-12">
             <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{t.coverageEyebrow}</p>
             <h2 className="mt-3 font-display text-3xl font-medium md:text-4xl">{t.coverageTitle}</h2>
             <p className="mt-4 max-w-md text-muted-foreground">{t.coverageBody}</p>

@@ -10,7 +10,7 @@ function ExampleCard({ ex, t, common }) {
   const it = t.items[ex.key];
   const Icon = LOC_ICON[ex.loc];
   return (
-    <article className="group relative flex h-full w-[78vw] max-w-[340px] shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-white/10 bg-card shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-colors duration-300 hover:border-primary/40 sm:w-auto sm:max-w-none">
+    <article className="group relative flex h-full w-[78vw] max-w-[340px] flex-col overflow-hidden rounded-xl border border-white/10 bg-card shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-colors duration-300 hover:border-primary/40 sm:w-auto sm:max-w-none">
       <div className="relative aspect-[4/5] overflow-hidden">
         <img src={ex.img} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.06]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
@@ -47,15 +47,17 @@ export default function VendorExamples({ heading = true, limit, className = "" }
         </div>
       )}
       <div className="shell mt-12">
-        <ul className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
-          {items.map((ex, i) => (
-            <li key={ex.key} className="sm:contents">
-              <Reveal delay={(i % 4) * 0.08} className="h-full">
+        {/* On phones this is a swipeable strip. scroll-px keeps snapped cards on the page margin,
+            and the strip fades in as one piece so the next card always peeks in from the right. */}
+        <Reveal>
+          <ul className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+            {items.map((ex) => (
+              <li key={ex.key} className="shrink-0 snap-start">
                 <ExampleCard ex={ex} t={t} common={all.common} />
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
         <p className="mt-6 text-sm text-muted-foreground">{all.common.examplesNote}</p>
       </div>
     </section>

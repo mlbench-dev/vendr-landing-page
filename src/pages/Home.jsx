@@ -32,7 +32,7 @@ export default function Home() {
       <AppShowcase />
       <PathsTeaser />
       <LocationModes className="border-b border-white/5" />
-      <section className="section" aria-labelledby="safety-title">
+      <section className="section border-b border-white/5" aria-labelledby="safety-title">
         <div className="shell">
           <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">

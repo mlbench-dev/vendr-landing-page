@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import VendorForm, { validate } from "@/components/onboarding/VendorForm";
 import { useLang, useLp, useT } from "@/lib/i18n";
 import { usePageMeta } from "@/lib/seo";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CITY_ELSEWHERE, CONTACT_EMAIL } from "@/lib/site";
 
 export default function JoinVendor() {
   const all = useT();
@@ -35,7 +35,9 @@ export default function JoinVendor() {
     setSending(true); setSubmitError("");
     try {
       const referred = [d.referred_by?.trim(), ref === "community" && "community referral"].filter(Boolean).join(" · ");
-      await base44.entities.VendorApplication.create({ ...d, email: d.email.trim(), referred_by: referred, language: lang, status: "pending" });
+      const { city_other, ...rest } = d;
+      const city = d.city === CITY_ELSEWHERE ? city_other.trim() : d.city;
+      await base44.entities.VendorApplication.create({ ...rest, city, email: d.email.trim(), referred_by: referred, language: lang, status: "pending" });
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {

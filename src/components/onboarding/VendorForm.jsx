@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, inputCls } from "@/components/onboarding/OnboardingFields";
-import { APPLY_CATEGORY_KEYS, APPLY_CITIES, MODE_KEYS } from "@/lib/site";
+import { APPLY_CATEGORY_KEYS, APPLY_CITIES, CITY_ELSEWHERE, MODE_KEYS } from "@/lib/site";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -11,6 +11,7 @@ export function validate(d, msg) {
   if (!EMAIL.test(d.email?.trim() || "")) e.email = msg.email;
   if (!d.business_name?.trim()) e.business_name = msg.business_name;
   if (!d.city) e.city = msg.city;
+  if (d.city === CITY_ELSEWHERE && !d.city_other?.trim()) e.city_other = msg.city_other;
   if (!d.description?.trim()) e.description = msg.description;
   if (!d.consent) e.consent = msg.consent;
   return e;
@@ -41,7 +42,8 @@ export default function VendorForm({ d, set, errors, t, common }) {
       <Text k="owner_name" label={f.owner_name} autoComplete="name" {...p} />
       <Text k="email" label={f.email} type="email" inputMode="email" autoComplete="email" {...p} />
       <Text k="business_name" label={f.business_name} autoComplete="organization" {...p} />
-      <Select k="city" label={f.city} placeholder={f.cityPh} options={APPLY_CITIES.map((c) => [c, common.cities[c] || c])} {...p} />
+      <Select k="city" label={f.city} placeholder={f.cityPh} options={[...APPLY_CITIES.map((c) => [c, common.cities[c] || c]), [CITY_ELSEWHERE, f.cityElsewhere]]} {...p} />
+      {d.city === CITY_ELSEWHERE && <Text k="city_other" label={f.cityOther} placeholder={f.cityOtherPh} autoComplete="address-level2" {...p} />}
       <Select k="category" label={f.category} hint={f.categoryHint} options={APPLY_CATEGORY_KEYS.map((k) => [k, common.categories[k]])} {...p} />
       <Select k="mode" label={f.mode} options={MODE_KEYS.map((k) => [k, common.modes[k]])} {...p} />
       <Field id="description" label={f.description} error={errors.description}>
