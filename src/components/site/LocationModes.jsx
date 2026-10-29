@@ -29,9 +29,9 @@ const Pin = () => (
 
 const Radius = () => (
   <MapTile>
-    <circle cx="160" cy="92" r="58" fill="#22c55e" opacity="0.18" />
-    <circle cx="160" cy="92" r="58" fill="none" stroke="#22c55e" strokeOpacity="0.45" strokeDasharray="4 6" />
-    <circle cx="160" cy="92" r="3" fill="#22c55e" opacity="0.6" />
+    <circle cx="160" cy="92" r="58" fill="#226BF7" opacity="0.2" />
+    <circle cx="160" cy="92" r="58" fill="none" stroke="#5b8fff" strokeOpacity="0.6" strokeDasharray="4 6" />
+    <circle cx="160" cy="92" r="3" fill="#5b8fff" opacity="0.8" />
   </MapTile>
 );
 

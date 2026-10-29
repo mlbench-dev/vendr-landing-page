@@ -96,7 +96,7 @@
   .link-quiet { @apply inline-flex items-center gap-1.5 text-[15px] text-muted-foreground transition-colors hover:text-foreground; }
   .eyebrow { @apply block text-[13px] font-medium text-white/50; }
   .lead { @apply text-[17px] leading-relaxed text-muted-foreground md:text-[18px]; }
-  .section { @apply py-24 md:py-32; }
+  .section { @apply py-14 md:py-32; }
   .card-surface { @apply rounded-xl border border-white/10 bg-card/70; }
   .kenburns { animation: kenburns 16s var(--ease-out-film) both; }
   .grain::after {

@@ -55,12 +55,12 @@ function Pin({ p, i, show, dim, picked, labels }) {
       transition={{ duration: 0.6, delay: show && !dim ? 0.25 + i * 0.09 : 0, ease: EASE }}
     >
       <div className="-translate-x-1/2 -translate-y-1/2">
-        {p.area && <span className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-emerald-400/40 bg-emerald-500/15 sm:h-28 sm:w-28" />}
+        {p.area && <span className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#5b8fff]/50 bg-[#226BF7]/20 sm:h-28 sm:w-28" />}
         {picked && <span className="motion-safe-anim absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/50" style={{ animation: "radar 1.8s ease-out infinite" }} />}
         <span className={`relative flex h-10 w-10 items-center justify-center rounded-full border shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors duration-500 ${picked ? "border-white/40 bg-primary text-white" : "border-white/15 bg-[#1a1f29] text-white/90"}`}>
           <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
         </span>
-        {p.area && <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/60 px-2 py-0.5 text-[10px] text-emerald-300/90">{labels.area}</span>}
+        {p.area && <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/60 px-2 py-0.5 text-[10px] text-[#9bbcff]">{labels.area}</span>}
       </div>
     </motion.div>
   );

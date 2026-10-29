@@ -8,6 +8,8 @@ export const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.str
 export const CITIES = ["Riverside", "San Bernardino", "Ontario", "Redlands", "Corona"];
 // The application form also accepts these, matching the form on streetvendr.org.
 export const APPLY_CITIES = [...CITIES, "Rancho Cucamonga", "Other Inland Empire area"];
+// Choosing this in the application form asks for a free-text city and state instead.
+export const CITY_ELSEWHERE = "elsewhere";
 
 export const CATEGORY_KEYS = ["food_drink", "makers_goods", "services", "wellness"];
 export const APPLY_CATEGORY_KEYS = [...CATEGORY_KEYS, "other"];

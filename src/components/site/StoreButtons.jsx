@@ -16,19 +16,22 @@ const Play = (p) => (
   </svg>
 );
 
-const badge = "group inline-flex h-14 items-center gap-3 rounded-2xl border border-white/20 bg-black px-5 text-left text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 focus-visible:-translate-y-0.5";
+// Compact on phones so both badges sit on one line; full size from the sm breakpoint up.
+const badge = "group inline-flex h-12 items-center gap-1.5 rounded-xl border border-white/20 bg-black px-3 text-left text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 focus-visible:-translate-y-0.5 sm:h-14 sm:gap-3 sm:rounded-2xl sm:px-5";
+const pre = "block text-[10px] text-white/70 sm:text-[11px]";
+const name = "mt-1 block text-[15px] font-semibold tracking-tight sm:text-[19px]";
 
 export default function StoreButtons({ className = "" }) {
   const t = useT().common;
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
+    <div className={`flex flex-wrap gap-2 sm:gap-3 ${className}`}>
       <a href={APP_STORE} target="_blank" rel="noreferrer" className={badge} aria-label={`${t.appStorePre} ${t.appStore}`}>
-        <Apple className="h-7 w-7" />
-        <span className="leading-none"><span className="block text-[11px] text-white/70">{t.appStorePre}</span><span className="mt-1 block text-[19px] font-semibold tracking-tight">{t.appStore}</span></span>
+        <Apple className="h-[22px] w-[22px] sm:h-7 sm:w-7" />
+        <span className="leading-none"><span className={pre}>{t.appStorePre}</span><span className={name}>{t.appStore}</span></span>
       </a>
       <a href={PLAY_STORE} target="_blank" rel="noreferrer" className={badge} aria-label={`${t.playPre} ${t.play}`}>
-        <Play className="h-6 w-6" />
-        <span className="leading-none"><span className="block text-[11px] text-white/70">{t.playPre}</span><span className="mt-1 block text-[19px] font-semibold tracking-tight">{t.play}</span></span>
+        <Play className="h-5 w-5 sm:h-6 sm:w-6" />
+        <span className="leading-none"><span className={pre}>{t.playPre}</span><span className={name}>{t.play}</span></span>
       </a>
     </div>
   );
